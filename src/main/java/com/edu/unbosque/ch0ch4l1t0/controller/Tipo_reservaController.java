@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Tipo_reserva;
-import com.edu.unbosque.ch0ch4l1t0.repository.Tipo_reservaRepository;
+import com.edu.unbosque.ch0ch4l1t0.service.Tipo_reservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,44 +14,44 @@ import java.util.List;
 public class Tipo_reservaController {
 
     @Autowired
-    private Tipo_reservaRepository tipoReservaRepository;
+    private Tipo_reservaService tipo_reservaService;
 
     @GetMapping
-    public String getAllTiposReserva(Model model) {
-        List<Tipo_reserva> tiposReserva = tipoReservaRepository.findAll();
-        model.addAttribute("tiposReserva", tiposReserva);
+    public String getAllTipos_reserva(Model model) {
+        List<Tipo_reserva> tipos_reserva = tipo_reservaService.findAll();
+        model.addAttribute("tipos_reserva", tipos_reserva);
         return "tipos_reserva/list";
     }
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
-        model.addAttribute("tipoReserva", new Tipo_reserva());
+        model.addAttribute("tipo_reserva", new Tipo_reserva());
         return "tipos_reserva/create";
     }
 
     @PostMapping("/create")
-    public String createTipoReserva(@ModelAttribute Tipo_reserva tipoReserva) {
-        tipoReservaRepository.save(tipoReserva);
+    public String createTipo_reserva(@ModelAttribute Tipo_reserva tipo_reserva) {
+        tipo_reservaService.save(tipo_reserva);
         return "redirect:/tipos_reserva";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {
-        Tipo_reserva tipoReserva = tipoReservaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid tipo reserva Id:" + id));
-        model.addAttribute("tipoReserva", tipoReserva);
+        Tipo_reserva tipo_reserva = tipo_reservaService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid tipo reserva Id:" + id));
+        model.addAttribute("tipo_reserva", tipo_reserva);
         return "tipos_reserva/edit";
     }
 
     @PostMapping("/update/{id}")
-    public String updateTipoReserva(@PathVariable("id") int id, @ModelAttribute Tipo_reserva tipoReserva) {
-        tipoReservaRepository.save(tipoReserva);
+    public String updateTipo_reserva(@PathVariable("id") int id, @ModelAttribute Tipo_reserva tipo_reserva) {
+        tipo_reservaService.save(tipo_reserva);
         return "redirect:/tipos_reserva";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteTipoReserva(@PathVariable("id") int id) {
-        Tipo_reserva tipoReserva = tipoReservaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid tipo reserva Id:" + id));
-        tipoReservaRepository.delete(tipoReserva);
+    public String deleteTipo_reserva(@PathVariable("id") int id) {
+        Tipo_reserva tipoReserva = tipo_reservaService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid tipo reserva Id:" + id));
+        tipo_reservaService.deleteById(id);
         return "redirect:/tipos_reserva";
     }
 }

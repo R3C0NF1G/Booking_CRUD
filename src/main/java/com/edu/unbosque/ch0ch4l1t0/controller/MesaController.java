@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Mesa;
-import com.edu.unbosque.ch0ch4l1t0.repository.MesaRepository;
+import com.edu.unbosque.ch0ch4l1t0.service.MesaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +14,11 @@ import java.util.List;
 public class MesaController {
 
     @Autowired
-    private MesaRepository mesaRepository;
+    private MesaService mesaService;
 
     @GetMapping
     public String getAllMesas(Model model) {
-        List<Mesa> mesas = mesaRepository.findAll();
+        List<Mesa> mesas = mesaService.findAll();
         model.addAttribute("mesas", mesas);
         return "mesas/list";
     }
@@ -31,27 +31,27 @@ public class MesaController {
 
     @PostMapping("/create")
     public String createMesa(@ModelAttribute Mesa mesa) {
-        mesaRepository.save(mesa);
+        mesaService.save(mesa);
         return "redirect:/mesas";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {
-        Mesa mesa = mesaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid mesa Id:" + id));
+        Mesa mesa = mesaService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid mesa Id:" + id));
         model.addAttribute("mesa", mesa);
         return "mesas/edit";
     }
 
     @PostMapping("/update/{id}")
     public String updateMesa(@PathVariable("id") int id, @ModelAttribute Mesa mesa) {
-        mesaRepository.save(mesa);
+        mesaService.save(mesa);
         return "redirect:/mesas";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteMesa(@PathVariable("id") int id) {
-        Mesa mesa = mesaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid mesa Id:" + id));
-        mesaRepository.delete(mesa);
+        Mesa mesa = mesaService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid mesa Id:" + id));
+        mesaService.deleteById(id);
         return "redirect:/mesas";
     }
 }

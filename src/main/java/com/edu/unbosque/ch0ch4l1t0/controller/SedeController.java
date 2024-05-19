@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Sede;
-import com.edu.unbosque.ch0ch4l1t0.repository.SedeRepository;
+import com.edu.unbosque.ch0ch4l1t0.service.SedeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +14,11 @@ import java.util.List;
 public class SedeController {
 
     @Autowired
-    private SedeRepository sedeRepository;
+    private SedeService sedeService;
 
     @GetMapping
     public String getAllSedes(Model model) {
-        List<Sede> sedes = sedeRepository.findAll();
+        List<Sede> sedes = sedeService.findAll();
         model.addAttribute("sedes", sedes);
         return "sedes/list";
     }
@@ -31,27 +31,27 @@ public class SedeController {
 
     @PostMapping("/create")
     public String createSede(@ModelAttribute Sede sede) {
-        sedeRepository.save(sede);
+        sedeService.save(sede);
         return "redirect:/sedes";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {
-        Sede sede = sedeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid sede Id:" + id));
+        Sede sede = sedeService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid sede Id:" + id));
         model.addAttribute("sede", sede);
         return "sedes/edit";
     }
 
     @PostMapping("/update/{id}")
     public String updateSede(@PathVariable("id") int id, @ModelAttribute Sede sede) {
-        sedeRepository.save(sede);
+        sedeService.save(sede);
         return "redirect:/sedes";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteSede(@PathVariable("id") int id) {
-        Sede sede = sedeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid sede Id:" + id));
-        sedeRepository.delete(sede);
+        Sede sede = sedeService.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid sede Id:" + id));
+        sedeService.deleteById(id);
         return "redirect:/sedes";
     }
 }
