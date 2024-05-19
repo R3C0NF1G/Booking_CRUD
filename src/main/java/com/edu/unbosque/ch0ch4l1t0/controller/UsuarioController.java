@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Usuario;
-import com.edu.unbosque.ch0ch4l1t0.service.UsuarioService;
+import com.edu.unbosque.ch0ch4l1t0.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

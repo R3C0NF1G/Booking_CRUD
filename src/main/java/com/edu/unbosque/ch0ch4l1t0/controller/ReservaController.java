@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Reserva;
-import com.edu.unbosque.ch0ch4l1t0.service.ReservaService;
+import com.edu.unbosque.ch0ch4l1t0.model.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

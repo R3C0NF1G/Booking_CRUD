@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Sede;
-import com.edu.unbosque.ch0ch4l1t0.service.SedeService;
+import com.edu.unbosque.ch0ch4l1t0.model.service.SedeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

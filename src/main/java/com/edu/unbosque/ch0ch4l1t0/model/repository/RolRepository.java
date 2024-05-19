@@ -1,4 +1,4 @@
-package com.edu.unbosque.ch0ch4l1t0.repository;
+package com.edu.unbosque.ch0ch4l1t0.model.repository;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Rol;
 import org.springframework.data.jpa.repository.JpaRepository;

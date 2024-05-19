@@ -1,7 +1,7 @@
 package com.edu.unbosque.ch0ch4l1t0.controller;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Auditoria;
-import com.edu.unbosque.ch0ch4l1t0.service.AuditoriaService;
+import com.edu.unbosque.ch0ch4l1t0.model.service.AuditoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

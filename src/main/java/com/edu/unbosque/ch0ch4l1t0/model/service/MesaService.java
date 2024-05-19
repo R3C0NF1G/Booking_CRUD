@@ -1,7 +1,7 @@
-package com.edu.unbosque.ch0ch4l1t0.service;
+package com.edu.unbosque.ch0ch4l1t0.model.service;
 
 import com.edu.unbosque.ch0ch4l1t0.model.entity.Mesa;
-import com.edu.unbosque.ch0ch4l1t0.repository.MesaRepository;
+import com.edu.unbosque.ch0ch4l1t0.model.repository.MesaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
