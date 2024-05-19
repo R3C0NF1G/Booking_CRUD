@@ -11,10 +11,10 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    @Query("SELECT u FROM Usuario u WHERE u.email = :email")
+    @Query("SELECT u FROM usuario u WHERE u.email = :email")
     Usuario findByEmail(@Param("email") String email);
 
-    @Query("SELECT u FROM Usuario u WHERE u.rol.id = :rolId")
-    List<Usuario> findByRolId(@Param("rolId") int rolId);
+    @Query("SELECT u FROM usuario u WHERE u.rol.id = :rolId")
+    List<Usuario> findByRolId(@Param("rol_id") int rol_id);
 
 }

@@ -30,7 +30,7 @@ public class ReservaService {
         reservaRepository.deleteById(id);
     }
 
-    public List<Reserva> findByUsuarioDni(int dniUsuario) {
-        return reservaRepository.findByUsuarioDni(dniUsuario);
+    public List<Reserva> findByUsuarioDni(int dni_usuario) {
+        return reservaRepository.findByUsuarioDni(dni_usuario);
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface MesaRepository extends JpaRepository<Mesa, Integer> {
 
-    @Query("SELECT m FROM Mesa m WHERE m.estado = true")
+    @Query("SELECT m FROM mesa m WHERE m.estado = true")
     List<Mesa> findMesasDisponibles();
 
 }

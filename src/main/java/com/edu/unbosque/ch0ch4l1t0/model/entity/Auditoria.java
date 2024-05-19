@@ -55,7 +55,7 @@ public class Auditoria {
         return detalle_accion;
     }
 
-    public void setDetalleAccion(String detalle_accion) {
+    public void setDetalle_accion(String detalle_accion) {
         this.detalle_accion = detalle_accion;
     }
 

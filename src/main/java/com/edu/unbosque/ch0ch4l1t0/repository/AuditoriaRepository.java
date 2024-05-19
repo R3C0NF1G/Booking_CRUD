@@ -16,11 +16,11 @@ import java.util.List;
 public interface AuditoriaRepository extends JpaRepository<Auditoria, Integer> {
 
     @Modifying
-    @Query(value = "INSERT INTO Auditoria (accion, tabla_afectada, detalle_accion, fecha, dni_usuario) VALUES (:accion, :tablaAfectada, :detalleAccion, :fecha, :dniUsuario)", nativeQuery = true)
+    @Query(value = "INSERT INTO auditoria (accion, tabla_afectada, detalle_accion, fecha, dni_usuario) VALUES (:accion, :tabla_afectada, :detalle_accion, :fecha, :dni_usuario)", nativeQuery = true)
     @Transactional
-    void crearAuditoria(@Param("accion") String accion, @Param("tablaAfectada") String tablaAfectada, @Param("detalleAccion") String detalleAccion, @Param("fecha") Date fecha, @Param("dniUsuario") int dniUsuario);
+    void crearAuditoria(@Param("accion") String accion, @Param("tabla_afectada") String tabla_afectada, @Param("detalle_accion") String detalle_accion, @Param("fecha") Date fecha, @Param("dni_usuario") int dni_usuario);
 
-    @Query("SELECT a FROM Auditoria a WHERE a.dniUsuario.dni = :dniUsuario")
-    List<Auditoria> findByUsuarioDni(@Param("dniUsuario") int dniUsuario);
+    @Query("SELECT a FROM auditoria a WHERE a.dni_usuario.dni = :dni_usuario")
+    List<Auditoria> findByUsuarioDni(@Param("dni_usuario") int dni_usuario);
 
 }

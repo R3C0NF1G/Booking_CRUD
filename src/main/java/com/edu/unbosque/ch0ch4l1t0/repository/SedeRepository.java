@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface SedeRepository extends JpaRepository<Sede, Integer> {
 
-    @Query("SELECT s FROM Sede s WHERE s.ciudad = :ciudad")
+    @Query("SELECT s FROM sede s WHERE s.ciudad = :ciudad")
     List<Sede> findByCiudad(@Param("ciudad") String ciudad);
 
 }

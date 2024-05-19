@@ -34,7 +34,7 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email);
     }
 
-    public List<Usuario> findByRolId(int rolId) {
-        return usuarioRepository.findByRolId(rolId);
+    public List<Usuario> findByRolId(int rol_id) {
+        return usuarioRepository.findByRolId(rol_id);
     }
 }

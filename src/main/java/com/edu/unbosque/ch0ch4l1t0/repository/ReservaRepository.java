@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
 
-    @Query("SELECT r FROM Reserva r WHERE r.usuario.dni = :dniUsuario")
-    List<Reserva> findByUsuarioDni(@Param("dniUsuario") int dniUsuario);
+    @Query("SELECT r FROM reserva r WHERE r.usuario.dni = :dni_usuario")
+    List<Reserva> findByUsuarioDni(@Param("dni_usuario") int dni_usuario);
 
 }

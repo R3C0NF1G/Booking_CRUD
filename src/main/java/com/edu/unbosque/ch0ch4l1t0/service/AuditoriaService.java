@@ -31,11 +31,11 @@ public class AuditoriaService {
         auditoriaRepository.deleteById(id);
     }
 
-    public List<Auditoria> findByUsuarioDni(int dniUsuario) {
-        return auditoriaRepository.findByUsuarioDni(dniUsuario);
+    public List<Auditoria> findByUsuarioDni(int dni_usuario) {
+        return auditoriaRepository.findByUsuarioDni(dni_usuario);
     }
 
-    public void crearAuditoria(String accion, String tablaAfectada, String detalleAccion, Date fecha, int dniUsuario) {
-        auditoriaRepository.crearAuditoria(accion, tablaAfectada, detalleAccion, fecha, dniUsuario);
+    public void crearAuditoria(String accion, String tabla_afectada, String detalle_accion, Date fecha, int dni_usuario) {
+        auditoriaRepository.crearAuditoria(accion, tabla_afectada, detalle_accion, fecha, dni_usuario);
     }
 }
